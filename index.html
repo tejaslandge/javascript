@@ -100,6 +100,56 @@ document.getElementById("demo").innerHTML = cars;
 <hr><hr>
 
 
+<h1>WAP to Display intrest</h1>
+<button class="btn btn-primary" onclick="getTax()"> getTax</button>
+<p  id="rate"></p>
+<script>
+    function getTax(){
+    emp=[
+        {name:"Amit",salary:24000},
+        {name:"Bhushan",salary:30000},
+        {name:"Chaitali",salary:80000},
+        {name:"Tejas",salary:100000}
 
+    ]
+    sum=0
+    aualPack=0
+    for( i=0;i<emp.length;i++)
+    {
+       //sum=sum+emp[i]['salary']
+
+
+       
+
+
+       anualPack=emp[i]['salary']*12
+
+
+       tax1=(anualPack*10)/100
+       tax2=(anualPack*20)/100
+       tax3=(anualPack*30)/100
+
+       if(anualPack<300000)
+       {
+        console.log(emp[i]['name'] +` your tax is 0 rs`)
+       }
+       else if(anualPack>300000 && anualPack<=500000)
+       {
+        console.log(emp[i]['name'] +` your tax is ${tax1} rs`)
+       }
+       else if(anualPack>500000 && anualPack<=1000000)
+       {
+        console.log(emp[i]['name'] +` your tax is ${tax2} rs`)
+
+       }
+       else if(anualPack>1000000)
+       {
+        console.log(emp[i]['name'] +` your tax is ${tax3} rs`)
+
+       }
+    }
+}
+
+</script>
 </body>
 </html>
