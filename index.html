@@ -151,5 +151,86 @@ document.getElementById("demo").innerHTML = cars;
 }
 
 </script>
+<hr><hr>
+
+<style>
+    table{
+        border-collapse: collapse;
+
+    }
+    th,td{
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+    }
+    th{
+        background-color: black;
+        color: white;
+    }
+</style>
+
+<h1>JSON DATA IN TABLE FORMAT</h1>
+
+<table id="myTable">
+    <thead>
+        
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>age</th>
+                <th>city</th>
+                
+                </tr>
+            </thead>
+        <tbody>
+            
+            </tbody>
+        </thead>
+    
+    
+    </table>
+
+
+
+
+<script>
+    
+const jsonData=[
+    {   
+        name="Aman",
+        age=20,
+        city="Nagpur"
+    },
+    {
+        name="Aman",
+        age=20,
+        city="Nagpur"
+    },
+    {
+        name="Aman",
+        age=20,
+        city="Nagpur"
+    }
+];
+ const tableBody=document.querySelector("#myTable tbody");
+jsonData.forEach(person => {
+   const   row=document.createElement('tr');
+   const nameCell=document.createElement('td');
+   nameCell.textContent=person.name;
+   row.appendChild(nameCell);
+
+
+   const row=document.createElement('tr');
+   const ageCell=document.createElement('td');
+   ageCell.textContent=person.email;
+   row.appendChild(ageCell);
+
+   onst   row=document.createElement('tr');
+   const cityCell=document.createElement('td');
+   cityCell.textContent=person.city;
+   row.appendChild(cityCell);
+});
+
+</script>
 </body>
 </html>

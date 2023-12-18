@@ -1,0 +1,59 @@
+<h1 id="counter">Counter</h1>
+<button onclick="getContentFromExtRsc(1)">Call ajax page 1</button>
+<button onclick="getContentFromExtRsc(2)">Call ajax page 2</button>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Avatar</th>
+        </tr>
+    </thead>
+    <tbody id="records">
+        <tr>
+            <td>id</td>
+            <td>email</td>
+            <td>fn</td>
+            <td>ln</td>
+            <td>ava</td>
+        </tr>
+    </tbody>
+</table>
+<div id="result"></div>
+<div id="result1"></div>
+<script>
+    cnt = 0
+    setInterval(() => {
+        document.getElementById(`counter`).innerHTML = cnt++
+    }, 1000)
+
+    function getContentFromExtRsc(pageno) {
+        url = `https://reqres.in/api/users?page=${pageno}`
+        fetch(url)
+            .then(res => res.json())
+            .then(result => {
+                    output = ''
+                    for (i = 0; i < result[`data`].length; i++) {
+                        output = output + `<tr>`
+                        output = output + `<td>${result[`data`][i][`id`]}</td>`
+                        output = output+ `<td>${result[`data`][i][`email`]}</td>`
+                        output = output+ `<td>${result[`data`][i][`first_name`]}</td>`
+                        output = output+ `<td>${result[`data`][i][`last_name`]}</td>`
+                        output = output+ `<td><img src= "${result[`data`][i][`avatar`]}"/></td>`
+                        output = output+ `</tr>`
+                    }
+                    
+
+            // output = output + `<tr>`
+            // output = output + `<td>${result[`data`][1][`id`]}</td>`
+            // output = output+ `<td>${result[`data`][1][`email`]}</td>`
+            // output = output+ `<td>${result[`data`][1][`first_name`]}</td>`
+            // output = output+ `<td>${result[`data`][1][`last_name`]}</td>`
+            // output = output+ `<td>${result[`data`][1][`avatar`]}</td>`
+            // output = output+ `</tr>`
+                document.getElementById(`records`).innerHTML = output
+            })
+    }
+</script>
